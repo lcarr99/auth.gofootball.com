@@ -10,7 +10,6 @@ import (
 
 func authenticateHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
-	w.Header().Add("x-Test-Header", "test")
 	w.WriteHeader(200)
 	response, error := json.Marshal("json")
 
