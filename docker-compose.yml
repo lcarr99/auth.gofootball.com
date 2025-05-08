@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  web:
+    image: golang:1.24
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/usr/src/app
+    build: ./
+    networks:
+      - docker-config
+networks:
+      docker-config:
+        external: true
+        name: docker-config
