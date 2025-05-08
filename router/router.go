@@ -10,26 +10,10 @@ import (
 )
 
 func authenticateHandler(w http.ResponseWriter, r *http.Request) {
-	db, dbErr := database.NewDatabase()
-
-	if dbErr != nil {
-		w.WriteHeader(500)
-	}
-
-	statement, _ := db.Prepare("SELECT uuid FROM files WHERE id = 1")
-
-	var uuid string
-
-	statement.QueryRow().Scan(&uuid)
-
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(200)
 
-	response, error := json.Marshal(uuid)
-
-	if error != nil {
-		return
-	}
+	response, _ := json.Marshal("here")
 
 	http.ResponseWriter.Write(w, response)
 }
